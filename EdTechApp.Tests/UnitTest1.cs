@@ -73,5 +73,20 @@ namespace EdTechApp.Tests
             Assert.Equal(19, student.Age);
             Assert.False(student.IsActive);
         }
+        [Fact]
+        public void GetActiveStudents_Returns_Only_Active_Students()
+        {
+            var service = new StudentService();
+            var student1 = new Student("Іван", "ivan@test.com", 18, "Група А", true);
+            var student2 = new Student("Марія", "maria@test.com", 19, "Група B", false);
+            service.AddStudent(student1);
+            service.AddStudent(student2);
+
+            var activeStudents = service.GetActiveStudents();
+
+            Assert.Contains(student1, activeStudents);
+            Assert.DoesNotContain(student2, activeStudents);
+        }
+
     }
 }
