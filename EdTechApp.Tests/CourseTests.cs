@@ -38,5 +38,37 @@ namespace EdTechApp.Tests
             // Assert
             Assert.Contains(assignment, course.Assignments);
         }
+         [Fact]
+        public void Course_Can_Add_Material()
+        {
+            // Arrange
+            var teacher = new Teacher("Петро", "petro@test.com");
+            var course = teacher.CreateCourse("Фізика", "Механіка", true);
+            var material = new Material("Відео 1", "Відео");
+
+            // Act
+            course.AddMaterial(material);
+
+            // Assert
+            Assert.Contains(material, course.Materials);
+        }
+
+        [Fact]
+        public void UpdateCourse_Changes_Applied()
+        {
+            // Arrange
+            var teacher = new Teacher("Марія", "maria@test.com");
+            var course = teacher.CreateCourse("Біологія", "Загальна біологія", true);
+
+            // Act
+            course.Title = "Біологія 2";
+            course.Description = "Розширена біологія";
+            course.InclusiveSupport = false;
+
+            // Assert
+            Assert.Equal("Біологія 2", course.Title);
+            Assert.Equal("Розширена біологія", course.Description);
+            Assert.False(course.InclusiveSupport);
+        }
     }
 }
