@@ -63,5 +63,29 @@ namespace EdTechApp.Tests
             Assert.Equal(1, done1);
             Assert.Equal(2, total1);
         }
+
+        [Fact]
+        public void Student_Progress_Updates_When_Assignment_Completed()
+        {
+            // Arrange
+            var teacher = new Teacher("Олена", "olena@test.com");
+            var course = teacher.CreateCourse("Програмування", "C# базовий", true);
+            var student = new Student("Марія", "maria@test.com", 18, "A1", true);
+
+            var assignment = new Assignment("Завдання 1", "опис");
+            course.AddAssignment(assignment);
+
+            student.Enroll(course);
+
+            // Act
+            assignment.Complete();
+
+            // Assert
+            int done = course.Assignments.Count(a => a.IsCompleted);
+            int total = course.Assignments.Count;
+
+            Assert.Equal(1, done);
+            Assert.Equal(1, total);
+        }
     }
 }
