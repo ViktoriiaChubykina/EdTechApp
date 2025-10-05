@@ -73,6 +73,7 @@ namespace EdTechApp.Tests
             Assert.Equal(19, student.Age);
             Assert.False(student.IsActive);
         }
+
         [Fact]
         public void GetActiveStudents_Returns_Only_Active_Students()
         {

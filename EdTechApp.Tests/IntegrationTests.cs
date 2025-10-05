@@ -87,5 +87,34 @@ namespace EdTechApp.Tests
             Assert.Equal(1, done);
             Assert.Equal(1, total);
         }
+
+        [Fact]
+        public void Course_With_Materials_And_Assignments_Shows_Correct_Info()
+        {
+            // Arrange
+            var teacher = new Teacher("Олександр", "oleks@test.com");
+            var course = teacher.CreateCourse("Фізика", "Механіка", true);
+
+            var assignment = new Assignment("Лабораторна 1", "опис");
+            var material = new Material("Відео 1", "Відео");
+            course.AddAssignment(assignment);
+            course.AddMaterial(material);
+
+            // Capture console output
+            using var sw = new StringWriter();
+            Logger.SetWriter(sw);
+
+            // Act
+            course.ShowInfo();
+
+            // Assert
+            var output = sw.ToString();
+            Assert.Contains("Фізика", output);
+            Assert.Contains("Механіка", output);
+            Assert.Contains("Лабораторна 1", output);
+            Assert.Contains("Відео 1", output);
+
+            Logger.SetWriter(Console.Out);
+        }
     }
 }
