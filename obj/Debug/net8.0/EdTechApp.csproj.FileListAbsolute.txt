@@ -1,0 +1,5 @@
+C:\Users\Vika\EdTechApp\obj\Debug\net8.0\EdTechApp.csproj.AssemblyReference.cache
+C:\Users\Vika\EdTechApp\obj\Debug\net8.0\EdTechApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Vika\EdTechApp\obj\Debug\net8.0\EdTechApp.AssemblyInfoInputs.cache
+C:\Users\Vika\EdTechApp\obj\Debug\net8.0\EdTechApp.AssemblyInfo.cs
+C:\Users\Vika\EdTechApp\obj\Debug\net8.0\EdTechApp.csproj.CoreCompileInputs.cache
